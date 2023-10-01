@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This log file is some what like utility file that we can copy paste in our project-->
+<Configuration status="WARN">
+<!-- this log4j2 file consists of 3 sections-->
+<!-- In this properties section we will determine the location where w want to store th logs-->
+<Properties>
+<Property name="basePath">./logs</Property>
+<!-- ./ shows the location of current project-->
+</Properties>
+
+<!-- Through appenders we can display logs either on console or we can store in file.Base path shows the location of the file-->
+<Appenders>
+<Console name="Console" target="SYSTEM_OUT">
+<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+</Console>
+<RollingFile name="File" fileName="${basePath}/automation.log" filePattern="${basePath}/automation-%d{yyyy-MM-dd}.log">
+<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+<SizeBasedTriggeringPolicy size="50000"/>
+</RollingFile>
+</Appenders>
+
+<!-- It shows the type of the logs which we want to display-->
+<Loggers>
+<Root level="Info"> <!-- We have selected the log type to be "info" it can be "debug" also-->
+<!--  Here you can use multiple log levels All < Trace < Debug < Info < Warn < Error < Fatal < Off  -->
+<AppenderRef ref="File"/> <!-- logs will be going to get stored in a file-->
+<!--  <AppenderRef ref="Console"/>  -->  <!-- logs will be going to get stored in console-->
+</Root>
+</Loggers>
+
+
+</Configuration>

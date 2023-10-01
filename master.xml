@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This xml file is used for executing all the test cases-->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="opencartSuite">
+<listeners>
+<listener class-name="utilities.ExtentReportManager"/>
+</listeners>
+  <test thread-count="5" name="opencartTest">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+    <!-- Whichever test case we want to execute we should include it here-->
+      <!--<class name="testBase.BaseClass"/>  -->
+      <!--<class name="testCases.TC_001_AccountregistrationPage"/> -->
+      <!-- <class name="testCases.TC_002_LoginTest"/> -->
+      <class name="testCases.TC_003_LoginDataDrivenTest"/>
+    </classes>
+  </test> <!-- opencartTest -->
+</suite> <!-- opencartSuite -->
